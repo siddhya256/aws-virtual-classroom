@@ -1,5 +1,162 @@
-<h1>Course Materials</h1>
+<!-- <h1>Course Materials</h1>
 
 {% for url in course_urls %}
     <a href="{{ url }}">Download PDF</a><br>
-{% endfor %}
+{% endfor %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AWS Virtual Classroom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+            <a href="/" class="navbar-brand" style="margin-bottom: 2rem; display: flex; justify-content: center;">
+                <div class="navbar-logo-icon">🎓</div>
+            </a>
+            
+            <ul class="sidebar-menu">
+                <li><a href="/dashboard" class="active">📊 Dashboard</a></li>
+                <li><a href="#courses">📚 Course Materials</a></li>
+                <li><a href="#downloads">⬇️ Downloads</a></li>
+                <li><a href="#profile">👤 Profile</a></li>
+                <li><a href="#settings">⚙️ Settings</a></li>
+            </ul>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <a href="/" style="color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.75rem 1rem; display: block; text-align: center; transition: all 0.3s; border-radius: 8px;" 
+                   onmouseover="this.style.background='rgba(255,153,0,0.2)'; this.style.color='white';"
+                   onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.7)';">
+                    🚪 Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-main">
+            <!-- HEADER -->
+            <div class="dashboard-header">
+                <div>
+                    <h1>Welcome, Student! 👋</h1>
+                    <p style="color: #666; margin-top: 0.5rem;">Continue your learning journey with AWS Virtual Classroom</p>
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar">S</div>
+                    <div>
+                        <div style="font-weight: 600;">Student</div>
+                        <small style="opacity: 0.7;">Active Now</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATISTICS CARDS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Total Courses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Available PDFs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">65%</div>
+                    <div class="stat-label">Learning Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">AWS Cloud Topics</div>
+                </div>
+            </div>
+
+            <!-- COURSE MATERIALS SECTION -->
+            <section class="courses-section" id="courses">
+                <h2 class="courses-title">📚 Course Materials & Resources</h2>
+                <p style="color: #666; margin-bottom: 1.5rem;">Download and access your learning materials</p>
+                
+                <div class="courses-grid">
+                    {% for url in course_urls %}
+                        <div class="course-card">
+                            {% if url.endswith('.jpg') or url.endswith('.png') or url.endswith('.jpeg') %}
+                                <img src="{{ url }}" alt="Course Material" style="object-fit: cover; height: 150px; width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                            {% else %}
+                                <div class="course-thumbnail">📄</div>
+                            {% endif %}
+                            
+                            <div class="course-name">
+                                {% if url.endswith('.pdf') %}
+                                    Course Material PDF
+                                {% elif url.endswith('.jpg') or url.endswith('.png') or url.endswith('.jpeg') %}
+                                    Course Illustration
+                                {% else %}
+                                    Course Resource
+                                {% endif %}
+                            </div>
+                            <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+                                {% if url.endswith('.pdf') %}
+                                    Download comprehensive PDF guide and study materials
+                                {% else %}
+                                    Visual learning resource for better understanding
+                                {% endif %}
+                            </p>
+
+                            <div class="course-actions">
+                                <a href="{{ url }}" target="_blank" class="btn-small btn-small-primary" style="text-decoration: none;">
+                                    {% if url.endswith('.pdf') %}
+                                        📥 Download
+                                    {% else %}
+                                        👁️ View
+                                    {% endif %}
+                                </a>
+                                <a href="{{ url }}" target="_blank" class="btn-small btn-small-secondary" style="text-decoration: none;">
+                                    🔗 Open
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <!-- LEARNING TOPICS SECTION -->
+            <section class="learning-section" id="learning">
+                <h2 class="learning-title">🎯 AWS Learning Topics</h2>
+                <p style="color: #666; margin-bottom: 1.5rem;">Explore key concepts in cloud computing</p>
+                
+                <div class="topics-grid">
+                    <div class="topic-badge">☁️ AWS Fundamentals</div>
+                    <div class="topic-badge">🔐 Security Basics</div>
+                    <div class="topic-badge">🖥️ EC2 Concepts</div>
+                    <div class="topic-badge">📦 S3 Storage</div>
+                    <div class="topic-badge">🗄️ Database Concepts</div>
+                    <div class="topic-badge">🌐 Networking</div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer style="margin-top: 4rem; background: transparent; padding: 2rem 0; text-align: center; border-top: 1px solid #E0E0E0;">
+                <div class="footer-content">
+                    <p class="footer-text" style="color: #666;">AWS Virtual Classroom - Cloud Learning Platform</p>
+                    <p class="footer-copyright" style="color: #999;">&copy; 2024 AWS Virtual Classroom. All rights reserved. | Hosted on Amazon AWS</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Simple active link indicator
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

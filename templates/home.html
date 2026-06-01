@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>AWS Virtual Classroom</title>
@@ -76,5 +76,178 @@
 
     </div>
 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Virtual Classroom - Cloud Learning Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <div class="navbar-logo-icon">🎓</div>
+                AWS Classroom
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#cta">Get Started</a></li>
+            </ul>
+            <div class="navbar-buttons">
+                <a href="/login" class="btn-login">Login</a>
+                <a href="/register" class="btn-register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to AWS Virtual Classroom</h1>
+            <p>Master cloud computing with industry-leading AWS training and course materials. Learn at your own pace in a professional, modern learning environment.</p>
+            <div class="hero-buttons">
+                <a href="/register" class="btn btn-primary">Start Learning Now</a>
+                <a href="/login" class="btn btn-outline">Sign In</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Learning Features</h2>
+            <p class="section-subtitle">Everything you need to succeed in cloud computing</p>
+            
+            <div class="features-grid">
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Course Materials</h3>
+                    <p>Access comprehensive PDF materials covering AWS fundamentals, best practices, and advanced concepts.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">☁️</div>
+                    <h3>Cloud Learning</h3>
+                    <p>Learn cloud computing concepts with practical examples and real-world AWS applications.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>AWS Training</h3>
+                    <p>Structured training path following AWS best practices and industry standards for cloud professionals.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Student Dashboard</h3>
+                    <p>Track your progress, manage courses, and monitor your learning journey with an intuitive dashboard.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>Secure Authentication</h3>
+                    <p>Enterprise-grade security with encrypted passwords and secure session management for your data.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Fast & Reliable</h3>
+                    <p>Hosted on AWS infrastructure for guaranteed 99.9% uptime and lightning-fast performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Classroom?</h2>
+            <p class="section-subtitle">Comprehensive benefits for modern learners</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-content">
+                        <h4>Self-Paced Learning</h4>
+                        <p>Study at your own speed with 24/7 access to all course materials and resources.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-content">
+                        <h4>Expert-Curated Content</h4>
+                        <p>Materials created by AWS professionals with industry expertise and real-world experience.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-content">
+                        <h4>Mobile Responsive</h4>
+                        <p>Access your courses from any device - desktop, tablet, or smartphone, anytime anywhere.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-content">
+                        <h4>Progress Tracking</h4>
+                        <p>Monitor your learning progress with detailed analytics and course completion statistics.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-content">
+                        <h4>Cloud-Hosted Platform</h4>
+                        <p>Built on AWS infrastructure - experience the reliability and performance of cloud technology.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-content">
+                        <h4>Secure & Private</h4>
+                        <p>Your data is protected with enterprise-level security and privacy standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL-TO-ACTION SECTION -->
+    <section class="hero" id="cta" style="padding: 4rem 2rem; background: linear-gradient(135deg, #FF9900 0%, #FFB84D 100%);">
+        <div class="hero-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Start Learning?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Join hundreds of students mastering AWS and cloud computing today.</p>
+            <div class="hero-buttons">
+                <a href="/register" class="btn" style="background: white; color: #FF9900; font-weight: 600;">Create Free Account</a>
+                <a href="/login" class="btn" style="background: transparent; color: white; border: 2px solid white; font-weight: 600;">Already a Member?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="margin-bottom: 1rem;">AWS Virtual Classroom</h3>
+            <p class="footer-text">A modern, cloud-hosted e-learning platform for AWS training and cloud computing education.</p>
+            <div style="margin: 1.5rem 0; opacity: 0.8;">
+                <span style="margin: 0 1rem; cursor: pointer;">📘 Facebook</span>
+                <span style="margin: 0 1rem; cursor: pointer;">𝕏 Twitter</span>
+                <span style="margin: 0 1rem; cursor: pointer;">💼 LinkedIn</span>
+            </div>
+            <p class="footer-copyright">&copy; 2024 AWS Virtual Classroom. All rights reserved. | Hosted on Amazon AWS</p>
+        </div>
+    </footer>
 </body>
 </html>

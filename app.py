@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "AWS Virtual Classroom Running"
+    return render_template('home.html')
 
 def get_db_connection():
     conn = mysql.connector.connect(

@@ -149,7 +149,10 @@ def upload():
             cursor.close()
             conn.close()
 
-            flash("Material uploaded successfully!")
+            return render_template(
+                "upload.html",
+                upload_success=True
+            )
 
     return render_template('upload.html')
 

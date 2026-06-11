@@ -73,5 +73,11 @@
             <p class="footer-copyright">&copy; 2024 AWS Virtual Classroom. Hosted on Amazon AWS</p>
         </div>
     </footer>
+    {% if upload_success %}
+<script>
+    alert("Material uploaded successfully!");
+    window.location.href = "/upload";
+</script>
+{% endif %}
 </body>
 </html>

@@ -124,29 +124,52 @@
 
 <div class="course-card">
 
-    <div class="course-thumbnail">
-        📄
-    </div>
+    {% if material.file_url.lower().endswith('.jpg') or material.file_url.lower().endswith('.jpeg') or material.file_url.lower().endswith('.png') or material.file_url.lower().endswith('.gif') or material.file_url.lower().endswith('.webp') %}
+        <img src="{{ material.file_url }}" alt="{{ material.title }}" style="object-fit: cover; height: 150px; width: 100%; border-radius: 8px; margin-bottom: 1rem; border: 1px solid var(--border-gray);">
+    {% elif material.file_url.lower().endswith('.pdf') %}
+        <div class="course-thumbnail" style="background: linear-gradient(135deg, #E74C3C, #F1948A); display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+            <span style="font-size: 3rem;">📕</span>
+            <span style="font-size: 0.9rem; font-weight: bold; background: rgba(0,0,0,0.15); padding: 0.1rem 0.6rem; border-radius: 4px; letter-spacing: 1px;">PDF</span>
+        </div>
+    {% elif material.file_url.lower().endswith('.doc') or material.file_url.lower().endswith('.docx') %}
+        <div class="course-thumbnail" style="background: linear-gradient(135deg, #2980B9, #85C1E9); display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+            <span style="font-size: 3rem;">📘</span>
+            <span style="font-size: 0.9rem; font-weight: bold; background: rgba(0,0,0,0.15); padding: 0.1rem 0.6rem; border-radius: 4px; letter-spacing: 1px;">DOC</span>
+        </div>
+    {% elif material.file_url.lower().endswith('.zip') or material.file_url.lower().endswith('.rar') or material.file_url.lower().endswith('.tar') or material.file_url.lower().endswith('.gz') %}
+        <div class="course-thumbnail" style="background: linear-gradient(135deg, #8E44AD, #C39BD3); display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+            <span style="font-size: 3rem;">📦</span>
+            <span style="font-size: 0.9rem; font-weight: bold; background: rgba(0,0,0,0.15); padding: 0.1rem 0.6rem; border-radius: 4px; letter-spacing: 1px;">ZIP</span>
+        </div>
+    {% else %}
+        <div class="course-thumbnail" style="background: linear-gradient(135deg, var(--aws-orange), #FFB84D); display: flex; flex-direction: column; gap: 0.5rem; justify-content: center; align-items: center;">
+            <span style="font-size: 3rem;">📄</span>
+            <span style="font-size: 0.9rem; font-weight: bold; background: rgba(0,0,0,0.15); padding: 0.1rem 0.6rem; border-radius: 4px; letter-spacing: 1px;">FILE</span>
+        </div>
+    {% endif %}
 
     <div class="course-name">
         {{ material.title }}
     </div>
 
-    <p>
+    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">
         Uploaded by:
         {{ material.uploaded_by }}
     </p>
 
     <div class="course-actions">
-
         <a
             href="{{ material.file_url }}"
             target="_blank"
+            class="btn-small btn-small-secondary">
+            👁️ View
+        </a>
+        <a
+            href="{{ material.file_url }}"
+            download
             class="btn-small btn-small-primary">
-
             Download
         </a>
-
     </div>
 
 </div>

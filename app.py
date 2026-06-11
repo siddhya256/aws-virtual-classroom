@@ -1,7 +1,7 @@
 import boto3
 import os
-from flask import Flask
-from flask import Flask, render_template, request, redirect, url_for
+import mimetypes
+from flask import Flask, render_template, request, redirect, url_for, Response, flash
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 import mysql.connector
@@ -122,10 +122,15 @@ def upload():
 
             filename = file.filename
 
+            content_type, _ = mimetypes.guess_type(filename)
+            if not content_type:
+                content_type = 'application/octet-stream'
+
             s3.upload_fileobj(
                 file,
                 BUCKET_NAME,
-                filename
+                filename,
+                ExtraArgs={'ContentType': content_type}
             )
 
             file_url = f"https://{BUCKET_NAME}.s3.ap-south-1.amazonaws.com/{filename}"
@@ -155,6 +160,21 @@ def upload():
             )
 
     return render_template('upload.html')
+
+@app.route('/view/<path:filename>')
+def view_file(filename):
+    try:
+        obj = s3.get_object(Bucket=BUCKET_NAME, Key=filename)
+        mime_type, _ = mimetypes.guess_type(filename)
+        if not mime_type:
+            mime_type = 'application/octet-stream'
+        return Response(
+            obj['Body'].read(),
+            mimetype=mime_type,
+            headers={"Content-Disposition": "inline"}
+        )
+    except Exception as e:
+        return str(e), 404
 
 if __name__ == '__main__':
     app.run(debug=True)

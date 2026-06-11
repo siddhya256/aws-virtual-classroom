@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Material</title>
+</head>
+<body>
+
+<h1>Instructor Upload Portal</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <p style="color:green;">
+        {{ messages[0] }}
+    </p>
+{% endif %}
+{% endwith %}
+
+<form method="POST" enctype="multipart/form-data">
+
+    <input
+        type="text"
+        name="title"
+        placeholder="Material Title"
+        required>
+
+    <br><br>
+
+    <input
+        type="file"
+        name="file"
+        required>
+
+    <br><br>
+
+    <button type="submit">
+        Upload
+    </button>
+
+</form>
+
+</body>
+</html>

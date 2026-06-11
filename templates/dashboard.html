@@ -19,7 +19,7 @@
             <a href="/" class="navbar-brand" style="margin-bottom: 2rem; display: flex; justify-content: center;">
                 <div class="navbar-logo-icon">🎓</div>
             </a>
-            
+
             <ul class="sidebar-menu">
                 <li><a href="/dashboard" class="active">📊 Dashboard</a></li>
                 <li><a href="#courses">📚 Course Materials</a></li>
@@ -29,7 +29,7 @@
             </ul>
 
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
-                <a href="/" style="color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.75rem 1rem; display: block; text-align: center; transition: all 0.3s; border-radius: 8px;" 
+                <a href="/" style="color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.75rem 1rem; display: block; text-align: center; transition: all 0.3s; border-radius: 8px;"
                    onmouseover="this.style.background='rgba(255,153,0,0.2)'; this.style.color='white';"
                    onmouseout="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.7)';">
                     🚪 Logout
@@ -78,16 +78,16 @@
             <section class="courses-section" id="courses">
                 <h2 class="courses-title">📚 Course Materials & Resources</h2>
                 <p style="color: #666; margin-bottom: 1.5rem;">Download and access your learning materials</p>
-                
+
                 <div class="courses-grid">
-                    {% for url in course_urls %}
+                    <!-- {% for url in course_urls %}
                         <div class="course-card">
                             {% if url.endswith('.jpg') or url.endswith('.png') or url.endswith('.jpeg') %}
                                 <img src="{{ url }}" alt="Course Material" style="object-fit: cover; height: 150px; width: 100%; border-radius: 8px; margin-bottom: 1rem;">
                             {% else %}
                                 <div class="course-thumbnail">📄</div>
                             {% endif %}
-                            
+
                             <div class="course-name">
                                 {% if url.endswith('.pdf') %}
                                     Course Material PDF
@@ -118,7 +118,40 @@
                                 </a>
                             </div>
                         </div>
-                    {% endfor %}
+                    {% endfor %} -->
+
+                    {% for material in materials %}
+
+<div class="course-card">
+
+    <div class="course-thumbnail">
+        📄
+    </div>
+
+    <div class="course-name">
+        {{ material.title }}
+    </div>
+
+    <p>
+        Uploaded by:
+        {{ material.uploaded_by }}
+    </p>
+
+    <div class="course-actions">
+
+        <a
+            href="{{ material.file_url }}"
+            target="_blank"
+            class="btn-small btn-small-primary">
+
+            Download
+        </a>
+
+    </div>
+
+</div>
+
+{% endfor %}
                 </div>
             </section>
 
@@ -126,7 +159,7 @@
             <section class="learning-section" id="learning">
                 <h2 class="learning-title">🎯 AWS Learning Topics</h2>
                 <p style="color: #666; margin-bottom: 1.5rem;">Explore key concepts in cloud computing</p>
-                
+
                 <div class="topics-grid">
                     <div class="topic-badge">☁️ AWS Fundamentals</div>
                     <div class="topic-badge">🔐 Security Basics</div>

@@ -1,42 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Upload Material</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Material - AWS Virtual Classroom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <div class="navbar-logo-icon">🎓</div>
+                AWS Classroom
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#benefits">Benefits</a></li>
+            </ul>
+            <div class="navbar-buttons">
+                <a href="/" class="btn-login">Logout</a>
+            </div>
+        </div>
+    </nav>
 
-<h1>Instructor Upload Portal</h1>
+    <!-- UPLOAD FORM SECTION -->
+    <section style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg, #F8F9FA 0%, #E8EEF5 100%);">
+        <div class="form-container">
+            <h1 class="form-title">Instructor Upload Portal</h1>
+            <p class="form-subtitle">Upload learning materials and PDF resources to the classroom</p>
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    <p style="color:green;">
-        {{ messages[0] }}
-    </p>
-{% endif %}
-{% endwith %}
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="success-message">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
 
-<form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title" class="form-label">Material Title</label>
+                    <input 
+                        type="text" 
+                        id="title"
+                        name="title" 
+                        class="form-input" 
+                        placeholder="Enter material title"
+                        required
+                    >
+                </div>
 
-    <input
-        type="text"
-        name="title"
-        placeholder="Material Title"
-        required>
+                <div class="form-group">
+                    <label for="file" class="form-label">Choose File</label>
+                    <input 
+                        type="file" 
+                        id="file"
+                        name="file" 
+                        class="form-input" 
+                        required
+                    >
+                </div>
 
-    <br><br>
+                <button type="submit" class="form-button">Upload</button>
+            </form>
+        </div>
+    </section>
 
-    <input
-        type="file"
-        name="file"
-        required>
-
-    <br><br>
-
-    <button type="submit">
-        Upload
-    </button>
-
-</form>
-
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2024 AWS Virtual Classroom. Hosted on Amazon AWS</p>
+        </div>
+    </footer>
 </body>
 </html>

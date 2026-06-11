@@ -2,6 +2,14 @@
 AWS Hosted Virtual Classroom using Flask, AWS EC2, AWS RDS and AWS S3
 
 
+
+<img width="1900" height="910" alt="image" src="https://github.com/user-attachments/assets/1d7587ab-33bc-4b30-ba65-00f75134f6b6" />
+
+<img width="1904" height="903" alt="image" src="https://github.com/user-attachments/assets/9fe4ca8e-fb2f-49e3-b827-c58b1b47db77" />
+
+<img width="1901" height="926" alt="image" src="https://github.com/user-attachments/assets/5276ec6d-73e8-4b4e-949b-adf6780f9344" />
+
+
 2. Project Overview - 
 The AWS Hosted Virtual Classroom is a cloud-based learning platform developed to provide online course material access for students and content management capabilities for instructors.
 The system is hosted completely on Amazon Web Services (AWS) and follows a client-server architecture.
@@ -241,4 +249,6 @@ The project successfully implements a complete Virtual Classroom solution using 
 
 
 
-<img width="1900" height="910" alt="image" src="https://github.com/user-attachments/assets/1d7587ab-33bc-4b30-ba65-00f75134f6b6" />
+
+
+
